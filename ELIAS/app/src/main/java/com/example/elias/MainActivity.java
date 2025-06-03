@@ -1,24 +1,38 @@
-package com.example.elias;
 
+package com.studen.StudentClass;
+
+import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.activity.EdgeToEdge;
+import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
-public class MainActivity extends AppCompatActivity {
+public class ProfileActivity extends AppCompatActivity {
+
+    TextView textViewProfileName, textViewProfileId, textViewProfileTopic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+        setContentView(R.layout.activity_profile);
+
+        textViewProfileName = findViewById(R.id.textViewProfileName);
+        textViewProfileId = findViewById(R.id.textViewProfileId);
+        textViewProfileTopic = findViewById(R.id.textViewProfileTopic);
+
+        Intent intent = getIntent();
+
+        if (intent != null && intent.getExtras() != null) {
+            String name = intent.getStringExtra(MainActivity.EXTRA_NAME);
+            String studentId = intent.getStringExtra(MainActivity.EXTRA_STUDENT_ID);
+            String researchTopic = intent.getStringExtra(MainActivity.EXTRA_RESEARCH_TOPIC);
+
+            textViewProfileName.setText("Name: " + (name != null ? name : "N/A"));
+            textViewProfileId.setText("Student ID: " + (studentId != null ? studentId : "N/A"));
+            textViewProfileTopic.setText("Research Topic: " + (researchTopic != null && !researchTopic.isEmpty() ? researchTopic : "N/A"));
+        } else {
+            textViewProfileName.setText("Name: Error loading data");
+            textViewProfileId.setText("Student ID: Error loading data");
+            textViewProfileTopic.setText("Research Topic: Error loading data");
+        }
     }
 }

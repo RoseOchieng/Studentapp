@@ -1,5 +1,4 @@
-
-package com.yourdomain.yourappname;
+package com.Student.StudentClass;
 
 import android.content.Intent;
 import android.os.Bundle;
