@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="User Registration (SQLite)"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="24dp"/>
+
+    <EditText
+        android:id="@+id/nameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+    android:hint="Name"
+    android:inputType="textPersonName"
+    android:padding="12dp"
+    android:layout_marginBottom="16dp"/>
+
+    <EditText
+        android:id="@+id/userEmailEditText"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+    android:hint="Email"
+    android:inputType="textEmailAddress"
+    android:padding="12dp"
+    android:layout_marginBottom="24dp"/>
+    <Button
+        android:id="@+id/registerUserButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Register User"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/viewUsersButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View Users"
+        android:layout_marginBottom="24dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#f0f0f0"
+        android:padding="8dp"
+        android:layout_marginBottom="16dp">
+        <TextView
+            android:id="@+id/usersDisplayTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="16sp"
+            android:textColor="@android:color/black"/>
+    </ScrollView>
+
+</LinearLayout>

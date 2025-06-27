@@ -1,0 +1,134 @@
+<androidx.cardview.widget.CardView xmlns:android="[http://schemas.android.com/apk/res/android](http://schemas.android.com/apk/res/android)"
+    xmlns:app="[http://schemas.android.com/apk/res-auto](http://schemas.android.com/apk/res-auto)"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="6dp"
+    app:cardBackgroundColor="#FFFFFF" layout_height=""> <!-- White card background -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical">
+
+        <!-- Profile Photo Placeholder (First Letter of Name) -->
+        <TextView
+            android:id="@+id/textViewProfilePhoto"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:background="@drawable/circle_background" <!-- Custom drawable for circle shape -->
+        android:gravity="center"
+        android:text="A"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginEnd="16dp" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewContactName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contact Name"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#333333" <!-- Dark text color -->
+            android:ellipsize="end"
+            android:maxLines="1"/>
+
+            <TextView
+                android:id="@+id/textViewContactPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phone: +1234567890"
+                android:textSize="16sp"
+                android:textColor="#555555" <!-- Medium gray text color -->
+            android:layout_marginTop="4dp"/>
+
+            <TextView
+                android:id="@+id/textViewContactEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email: example@email.com"
+                android:textSize="16sp"
+                android:textColor="#555555" <!-- Medium gray text color -->
+            android:layout_marginTop="4dp"/>
+        </LinearLayout>
+
+        <!-- Call and Email Icons for Implicit Intents -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="16dp">
+
+            <ImageView
+                android:id="@+id/imageViewCall"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@android:drawable/sym_action_call"
+                android:tint="#4CAF50" <!-- Green tint -->
+            android:padding="8dp"
+            android:background="@drawable/circle_ripple_background"
+            android:clickable="true"
+            android:focusable="true"
+            android:contentDescription="Call Contact" />
+
+            <ImageView
+                android:id="@+id/imageViewEmail"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@android:drawable/sym_action_email"
+                android:tint="#2196F3" <!-- Blue tint -->
+            android:padding="8dp"
+            android:background="@drawable/circle_ripple_background"
+            android:clickable="true"
+            android:focusable="true"
+            android:contentDescription="Email Contact"
+            android:layout_marginStart="8dp"/>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
+
+    <!-- --- Drawable Resources (in app/src/main/res/drawable/) --- -->
+
+    <!-- rounded_edittext_background.xml -->
+    <!-- For rounded corners on EditText fields -->
+<shape xmlns:android="[http://schemas.android.com/apk/res/android](http://schemas.android.com/apk/res/android)">
+<solid android:color="#FFFFFF"/> <!-- White background -->
+<corners android:radius="12dp"/> <!-- Rounded corners -->
+<stroke android:width="1dp" android:color="#CCCCCC"/> <!-- Light grey border -->
+</shape>
+
+    <!-- circle_background.xml -->
+    <!-- For the circular profile photo placeholder -->
+<shape xmlns:android="[http://schemas.android.com/apk/res/android](http://schemas.android.com/apk/res/android)"
+android:shape="oval">
+<solid android:color="#FFC107"/> <!-- Amber color -->
+</shape>
+
+    <!-- circle_ripple_background.xml -->
+    <!-- For ripple effect on clickable icons -->
+<ripple xmlns:android="[http://schemas.android.com/apk/res/android](http://schemas.android.com/apk/res/android)"
+android:color="?android:attr/colorControlHighlight">
+<item android:id="@android:id/mask">
+    <shape android:shape="oval">
+        <solid android:color="#FFFFFF"/>
+    </shape>
+</item>
+<item>
+    <shape android:shape="oval">
+        <solid android:color="@android:color/transparent"/>
+    </shape>
+</item>
+</ripple>
